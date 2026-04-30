@@ -1,0 +1,153 @@
+:root {
+  --pink: #ff56c9;
+  --hot-pink: #ff2fa8;
+  --lavender: #c7b6ff;
+  --sky: #89b7ff;
+  --cyan: #16f5df;
+  --ink: #0c0724;
+  --window: #f8d8f0;
+  --line: #2a1f55;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "MS UI Gothic", "Osaka-mono", "Courier New", monospace;
+  color: var(--ink);
+  min-height: 100vh;
+  background: linear-gradient(90deg, var(--sky), var(--pink));
+  overflow-x: hidden;
+}
+
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 47, 168, 0.65) 2px, transparent 2px);
+  background-size: 40px 40px;
+  opacity: 0.35;
+}
+
+.desktop {
+  position: relative;
+  width: min(1150px, 94vw);
+  margin: 3rem auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.2rem;
+}
+
+.window {
+  border: 3px solid var(--line);
+  background: var(--window);
+  box-shadow: 8px 8px 0 rgba(12, 7, 36, 0.35);
+}
+
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f4b7e4;
+  border-bottom: 3px solid var(--line);
+  padding: 0.35rem 0.5rem;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+.controls { display: flex; gap: 0.3rem; }
+
+.controls button,
+.player-actions button {
+  font: inherit;
+  border: 2px solid var(--line);
+  background: #ffd7f2;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.controls button { width: 2rem; height: 1.8rem; line-height: 1; }
+
+.content { padding: 1.2rem; }
+
+.hero-content {
+  min-height: 410px;
+  background: linear-gradient(180deg, rgba(137, 183, 255, 0.85), rgba(255, 86, 201, 0.65));
+}
+
+.kicker {
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+h1 {
+  margin: 0.35rem 0 0.9rem;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  line-height: 1;
+  text-shadow: 3px 3px 0 var(--cyan);
+}
+
+h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.button-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.pixel-btn {
+  display: inline-block;
+  border: 3px solid var(--line);
+  background: #c5d6ff;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.65rem 1.2rem;
+  font-weight: 700;
+}
+
+.pixel-btn.primary { background: var(--hot-pink); color: white; }
+
+.side-window { align-self: start; }
+
+.music-window {
+  grid-column: 1 / -1;
+  max-width: 680px;
+}
+
+.player { background: #02030a; color: var(--cyan); }
+
+.bar {
+  height: 1.2rem;
+  border: 2px solid var(--cyan);
+  position: relative;
+}
+
+.bar span {
+  position: absolute;
+  inset: 0;
+  width: 45%;
+  background: linear-gradient(90deg, var(--cyan), var(--hot-pink));
+}
+
+.player-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.player-actions button {
+  background: var(--cyan);
+  padding: 0.45rem 0.65rem;
+}
+
+@media (max-width: 900px) {
+  .desktop { grid-template-columns: 1fr; }
+  .music-window { grid-column: auto; max-width: none; }
+}
